@@ -3,4 +3,4 @@
   <span>My Portfolio</span>
   <img src="https://user-images.githubusercontent.com/41794735/140377694-5bb6bb5f-ab9d-443b-a490-ef5bf640dd75.png" align="right"/>
 </h2>
-Link: <a href="https://almir.info/" target="_blank">https://almir.info/</a>
+Link: <a href="https://almir.info/" target="_blank">almir.info/</a>
