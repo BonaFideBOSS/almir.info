@@ -1,3 +1,3 @@
-My first officially published personal portfolio.
+My portfolio.
 
 Link: https://almir.info/
