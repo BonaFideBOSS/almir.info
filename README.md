@@ -2,7 +2,7 @@
 
 <h1>
   <span>My Portfolio</span>
-  <img src="https://user-images.githubusercontent.com/41794735/140377694-5bb6bb5f-ab9d-443b-a490-ef5bf640dd75.png"/>
+  <img src="https://user-images.githubusercontent.com/41794735/140377694-5bb6bb5f-ab9d-443b-a490-ef5bf640dd75.png" align="right"/>
 </h1>
 
 Link: https://almir.info/
