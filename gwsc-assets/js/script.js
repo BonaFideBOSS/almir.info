@@ -25,7 +25,7 @@ function bstoast(toast_container, message, delay = 5000) {
   wrapper.classList.add('toast')
   wrapper.setAttribute("data-bs-delay", delay)
   wrapper.innerHTML = '<div class="toast-header">' +
-    '<img src="https://almir.info/gwsc-assets/img/gwsc_logo.png" width="20" class="me-2">' +
+    '<img src="https://almir.info/gwsc-assets/img/company/gwsc_logo.png" width="20" class="me-2">' +
     '<strong class="me-auto">GWSC</strong>' +
     '<small>Just Now</small>' +
     '<button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>' +
