@@ -31,16 +31,41 @@
   --bs-btn-disabled-border-color: #00aa37;
 }
 
-.text-blue {
-  color: var(--bs-blue);
+.btn-outline-success {
+  --bs-btn-color: #00aa37;
+  --bs-btn-border-color: #00aa37;
+  --bs-btn-hover-bg: #00aa37;
+  --bs-btn-hover-border-color: #00aa37;
+  --bs-btn-focus-shadow-rgb: none;
+  --bs-btn-active-bg: #00aa37;
+  --bs-btn-active-border-color: #00aa37;
+  --bs-btn-active-shadow: none;
+  --bs-btn-disabled-color: #00aa37;
+  --bs-btn-disabled-border-color: #00aa37;
 }
 
 .bg-blue {
   background-color: var(--bs-blue);
 }
 
+.text-blue {
+  color: var(--bs-blue);
+}
+
 .text-pink {
   color: var(--bs-pink);
+}
+
+.text-hover-primary:hover {
+  color: var(--bs-primary) !important;
+}
+
+.text-hover-blue:hover {
+  color: var(--bs-blue) !important;
+}
+
+.text-hover-pink:hover {
+  color: var(--bs-pink) !important;
 }
 
 html,
@@ -67,8 +92,10 @@ body {
 }
 
 .form-control:focus,
-.form-select:focus {
-  box-shadow: none;
+.form-select:focus,
+.btn-close:focus,
+.form-check-input:focus {
+  box-shadow: none !important;
 }
 
 [data-bs-theme="dark"] .bg-light {
@@ -86,8 +113,8 @@ body {
   -webkit-box-shadow: 0 0 0 50rem var(--bs-body-bg) inset;
 }
 
-.nav .nav-link:not(.active):hover {
-  background-color: var(--bs-tertiary-bg);
+[data-bs-theme="dark"] #scroll-to-top {
+  color: var(--bs-light);
 }
 
 #scroll-to-top {
@@ -98,10 +125,6 @@ body {
   cursor: pointer;
   color: var(--bs-dark);
   opacity: .5;
-}
-
-[data-bs-theme="dark"] #scroll-to-top {
-  color: var(--bs-light);
 }
 
 #scroll-to-top:hover {
@@ -126,12 +149,23 @@ body {
   cursor: pointer !important;
 }
 
-#home-carousel .carousel-item {
-  height: 80vh;
+.nav .nav-link:not(.active):hover {
+  background-color: var(--bs-tertiary-bg);
 }
 
 .offcanvas .nav-item .nav .nav-item {
   max-height: 54.4px;
+}
+
+.footer {
+  background-image: url('../img/website/footer.svg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-blend-mode: difference;
+}
+
+#home-carousel .carousel-item {
+  height: 80vh;
 }
 
 #home-carousel img {
@@ -167,4 +201,16 @@ body {
 
 [data-bs-theme="dark"] .nav-item .text-dark {
   color: #fff !important;
+}
+
+.modal-content {
+  border: none !important;
+}
+
+.delete-modal .modal-footer .btn:first-of-type {
+  border-bottom-left-radius: var(--bs-modal-border-radius) !important;
+}
+
+.delete-modal .modal-footer .btn:last-of-type {
+  border-bottom-right-radius: var(--bs-modal-border-radius) !important;
 }
