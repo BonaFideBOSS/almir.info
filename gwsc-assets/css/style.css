@@ -117,6 +117,10 @@ body {
   color: var(--bs-light);
 }
 
+[data-bs-theme="dark"] .nav-item .text-dark {
+  color: #fff !important;
+}
+
 #scroll-to-top {
   display: none;
   position: fixed;
@@ -199,10 +203,6 @@ body {
   font-size: 1.25rem;
 }
 
-[data-bs-theme="dark"] .nav-item .text-dark {
-  color: #fff !important;
-}
-
 .modal-content {
   border: none !important;
 }
@@ -213,4 +213,16 @@ body {
 
 .delete-modal .modal-footer .btn:last-of-type {
   border-bottom-right-radius: var(--bs-modal-border-radius) !important;
+}
+
+#error {
+  background-image: url(../img/misc/art-1.jpg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  min-height: 100vh;
+}
+
+#error .bg-dark {
+  --bs-bg-opacity: .5 !important;
 }
