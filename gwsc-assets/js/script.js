@@ -43,13 +43,18 @@ if (window.history.replaceState) {
 $('#footer-year').html(new Date().getFullYear().toString())
 
 $(function () {
-  $('.nav-dropdown').hover(function () {
-      $(this).find('.dropdown-menu').addClass('show')
+  $('.dropdown-hover').hover(function () {
+      $(this).find('.dropdown-menu:eq(0)').addClass('show')
     },
     function () {
       $(this).find('.dropdown-menu').removeClass('show')
     });
 });
+
+$('#navbar-mobile .dropdown').on('click', function () {
+  $(this).find('.fa-caret-up').addClass('fa-caret-down')
+  $(this).find('.fa-caret-down').addClass('fa-caret-up')
+})
 
 let scroll_to_top = document.getElementById("scroll-to-top");
 
@@ -92,3 +97,10 @@ function side_menu(mediaQuery) {
 const mediaQuery = window.matchMedia('(max-width: 991.98px)')
 mediaQuery.addEventListener("change", side_menu)
 side_menu(mediaQuery)
+
+$('#enlarge-img').on('show.bs.modal', function (event) {
+  const button = event.relatedTarget
+  const recipient = button.getAttribute('src')
+  const img = this.querySelector('.modal-body img')
+  img.src = recipient
+})

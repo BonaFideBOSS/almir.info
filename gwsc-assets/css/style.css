@@ -138,7 +138,16 @@ body {
 .navbar .dropdown-menu,
 #navbar-mobile .dropdown-menu {
   --bs-dropdown-min-width: 15rem !important;
-  border-radius: 1rem;
+  border-radius: 1rem !important;
+  --bs-dropdown-padding-y: 1rem !important;
+}
+
+.dropend.dropdown-hover .dropdown-menu {
+  top: 0;
+  right: auto;
+  left: 100%;
+  margin-top: 0;
+  margin-left: var(--bs-dropdown-spacer);
 }
 
 .navbar-toggler {
@@ -157,6 +166,10 @@ body {
   background-color: var(--bs-tertiary-bg);
 }
 
+.username {
+  max-width: 150px;
+}
+
 .offcanvas .nav-item .nav .nav-item {
   max-height: 54.4px;
 }
@@ -168,17 +181,17 @@ body {
   background-blend-mode: difference;
 }
 
-#home-carousel .carousel-item {
-  height: 80vh;
+#head-carousel .carousel-item {
+  height: 87vh;
 }
 
-#home-carousel img {
+#head-carousel img {
   width: 100%;
   height: 100%;
   object-fit: cover;
 }
 
-#home-carousel .carousel-caption {
+#head-carousel .carousel-caption {
   bottom: 30% !important;
 }
 
@@ -203,6 +216,10 @@ body {
   font-size: 1.25rem;
 }
 
+.side-menu-options:not(:has(>.vr)) {
+  height: fit-content;
+}
+
 .modal-content {
   border: none !important;
 }
@@ -215,8 +232,12 @@ body {
   border-bottom-right-radius: var(--bs-modal-border-radius) !important;
 }
 
+.paginate_button {
+  border: none !important;
+}
+
 #error {
-  background-image: url(../img/misc/art-1.jpg);
+  background-image: url('https://almir.info/gwsc-assets/img/misc/art-1.jpg');
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -225,4 +246,59 @@ body {
 
 #error .bg-dark {
   --bs-bg-opacity: .5 !important;
+}
+
+.file-container {
+  width: 100px;
+  height: 100px;
+}
+
+.site-img-container {
+  width: 200px;
+  height: 200px;
+  overflow: hidden;
+}
+
+.site-img-container img,
+.file-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: .3s all ease;
+}
+
+.file-container embed {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.site-img-container:hover img {
+  transform: scale(1.2);
+  cursor: url('../img/website/zoom.svg'), auto;
+}
+
+@media (max-width: 575.98px) {
+  .site-img-container {
+    width: 100%;
+  }
+}
+
+.site-card {
+  overflow: hidden;
+}
+
+.site-card-img-box {
+  overflow: hidden;
+  height: 200px;
+}
+
+.site-card img {
+  height: 100%;
+  object-fit: cover;
+  transition: .3s all ease;
+}
+
+.site-card:hover img {
+  transform: scale(1.2);
 }
