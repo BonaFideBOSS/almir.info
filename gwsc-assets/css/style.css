@@ -102,6 +102,10 @@ body {
   --bs-bg-opacity: .1 !important;
 }
 
+[data-bs-theme="dark"] .text-light {
+  --bs-text-opacity: .5 !important;
+}
+
 [data-bs-theme="dark"] .text-dark {
   --bs-text-opacity: unset !important
 }
@@ -297,4 +301,49 @@ body {
 
 .site-card:hover img {
   transform: scale(1.2);
+}
+
+.site-card .btn span {
+  position: relative;
+}
+
+.site-card .btn svg {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  opacity: 0;
+  transition: .3s all ease;
+}
+
+.site-card:hover .btn svg {
+  opacity: 1;
+  margin-left: .5rem;
+}
+
+.bg-backdrop {
+  backdrop-filter: contrast(0.8);
+  -webkit-backdrop-filter: contrast(0.8);
+}
+
+#swimming-header {
+  background-image: url("../img/sites/swimming-header.jfif");
+  background-position: center;
+  background-size: cover;
+}
+
+#local-attractions-header {
+  background-image: url("..//img/local-attractions/header.jpg");
+  background-position: center;
+  background-size: cover;
+}
+
+.banner {
+  height: 100vh;
+  width: 100%;
+}
+
+.banner img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
