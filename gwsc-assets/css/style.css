@@ -170,10 +170,6 @@ body {
   max-width: 150px;
 }
 
-.offcanvas .nav-item .nav .nav-item {
-  max-height: 54.4px;
-}
-
 .footer {
   background-image: url('../img/website/footer.svg');
   background-repeat: no-repeat;
@@ -296,7 +292,7 @@ body {
 .site-card img {
   height: 100%;
   object-fit: cover;
-  transition: .3s all ease;
+  transition: .5s all ease;
 }
 
 .site-card:hover img {
