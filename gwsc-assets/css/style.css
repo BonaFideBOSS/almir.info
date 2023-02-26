@@ -326,13 +326,13 @@ body {
 }
 
 #swimming-header {
-  background-image: url("../img/sites/swimming-header.jfif");
+  background-image: url("https://almir.info/gwsc-assets/img/sites/swimming-header.jfif");
   background-position: center;
   background-size: cover;
 }
 
 #local-attractions-header {
-  background-image: url("..//img/local-attractions/header.jpg");
+  background-image: url("https://almir.info/gwsc-assets/img/local-attractions/header.jpg");
   background-position: center;
   background-size: cover;
 }
