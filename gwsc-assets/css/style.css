@@ -175,7 +175,7 @@ body {
 }
 
 .footer {
-  background-image: url('../img/website/footer.svg');
+  background-image: url('https://almir.info/gwsc-assets/img/website/footer.svg');
   background-repeat: no-repeat;
   background-size: cover;
   background-blend-mode: difference;
@@ -275,7 +275,7 @@ body {
 
 .site-img-container:hover img {
   transform: scale(1.2);
-  cursor: url('../img/website/zoom.svg'), auto;
+  cursor: url('https://almir.info/gwsc-assets/img/website/zoom.svg'), auto;
 }
 
 @media (max-width: 575.98px) {
