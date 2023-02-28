@@ -104,3 +104,20 @@ $('#enlarge-img').on('show.bs.modal', function (event) {
   const img = this.querySelector('.modal-body img')
   img.src = recipient
 })
+
+
+const weatherApiKey = "f5b94f04261b4c0e824174523232402"
+const weatherApiQuery = $('#visitor-weather').data('ip')
+console.log(weatherApiQuery)
+$.get('https://api.weatherapi.com/v1/current.json?key=' + weatherApiKey + '&q=' + weatherApiQuery + '&aqi=no',
+  function (data) {
+    const name = data.location.name
+    const icon = data.current.condition.icon
+    const condition = data.current.condition.text
+    const humidity = data.current.humidity
+    const wind = data.current.wind_mph
+    const temp_c = data.current.temp_c
+    const temp_f = data.current.temp_f
+    console.log(data)
+    $('#visitor-weather').html('<img src="' + icon + '" width="30px" class="mb-1"/> ' + temp_c + '<sup>o</sup>C')
+  });
