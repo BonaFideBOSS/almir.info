@@ -331,6 +331,12 @@ body {
   background-size: cover;
 }
 
+#camping-header {
+  background-image: url("../img/sites/camping-head.jpg");
+  background-position: center;
+  background-size: cover;
+}
+
 #local-attractions-header {
   background-image: url("https://almir.info/gwsc-assets/img/local-attractions/header.jpg");
   background-position: center;
