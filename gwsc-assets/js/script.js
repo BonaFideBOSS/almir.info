@@ -107,7 +107,7 @@ $('#enlarge-img').on('show.bs.modal', function (event) {
 
 
 const weatherApiKey = "f5b94f04261b4c0e824174523232402"
-var weatherApiQuery = $('#visitor-weather').data('ip')
+var weatherApiQuery = $('.visitor-weather').data('ip')
 $.get('https://api.weatherapi.com/v1/current.json?key=' + weatherApiKey + '&q=' + weatherApiQuery + '&aqi=no',
   function (data) {
     const name = data.location.name
