@@ -114,7 +114,7 @@ $.get('https://api.weatherapi.com/v1/current.json?key=' + weatherApiKey + '&q=' 
     const icon = data.current.condition.icon
     const condition = data.current.condition.text
     const humidity = data.current.humidity
-    const wind = data.current.wind_mph
+    const wind = data.current.wind_kph
     const temp_c = data.current.temp_c
     const temp_f = data.current.temp_f
     $('.visitor-weather').html('<img src="' + icon + '" width="30px" class="mb-1"/> ' + temp_c + '<sup>o</sup>C')
