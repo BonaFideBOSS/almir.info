@@ -119,3 +119,15 @@ $.get('https://api.weatherapi.com/v1/current.json?key=' + weatherApiKey + '&q=' 
     const temp_f = data.current.temp_f
     $('.visitor-weather').html('<img src="' + icon + '" width="30px" class="mb-1"/> ' + temp_c + '<sup>o</sup>C')
   });
+
+$('.slider-container .slide-right').on('click', function () {
+  $('.slider-content').animate({
+    scrollLeft: "+=300px"
+  }, "slow");
+})
+
+$('.slider-container .slide-left').on('click', function () {
+  $('.slider-content').animate({
+    scrollLeft: "-=300px"
+  }, "slow");
+})
