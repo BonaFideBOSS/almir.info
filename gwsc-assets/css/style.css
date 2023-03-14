@@ -230,19 +230,28 @@ body {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  background-color: rgba(0, 0, 0, .5);
-  color: #fff;
   cursor: pointer;
+  display: none;
+}
+
+.slider-container .slide-left {
+  margin-left: -1rem;
 }
 
 .slider-container .slide-right {
   right: 0;
+  margin-right: -1rem;
 }
 
 
 @media (min-width: 992px) {
   .home-search-box-lg {
     display: block;
+  }
+
+  .slider-container .slide-left,
+  .slider-container .slide-right {
+    display: unset;
   }
 }
 
@@ -265,6 +274,54 @@ body {
   width: 4rem;
   height: 4rem;
   color: #fff;
+}
+
+.about-team .card .card-img-overlay {
+  opacity: 0;
+  background-color: rgba(0, 0, 0, .5);
+  transition: all .3s ease-in-out;
+}
+
+.about-team .card:hover .card-img-overlay {
+  opacity: 1;
+}
+
+.about-quotes {
+  position: relative;
+}
+
+.about-quotes .quote-icon {
+  position: absolute;
+  top: 0;
+  left: 0;
+  margin-top: -20px;
+}
+
+.about-quotes .team-img-container {
+  height: 100px;
+  width: 100px;
+  max-width: 100%;
+  position: relative;
+  z-index: 2;
+}
+
+.about-quotes .team-img-container img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.about-quotes .nav-link {
+  border: 2px solid var(--bs-blue);
+}
+
+.about-quotes .nav-link.active {
+  background-color: var(--bs-nav-pills-link-active-bg) !important;
+}
+
+[data-bs-theme="dark"] .about-features .bg-light {
+  background-color: var(--bs-dark-bg-subtle) !important;
 }
 
 #privacy-policy h2,
@@ -349,7 +406,6 @@ body {
 
 .site-card {
   overflow: hidden;
-  /* position: relative; */
 }
 
 .site-card-img-box {
@@ -432,4 +488,8 @@ body {
   left: 0;
   right: 0;
   bottom: 0;
+}
+
+[data-bs-theme="dark"] iframe.google-map {
+  filter: invert(.9);
 }

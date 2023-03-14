@@ -56,10 +56,13 @@ $('#navbar-mobile .dropdown').on('click', function () {
   $(this).find('.fa-caret-down').addClass('fa-caret-up')
 })
 
+// ============================================
+// ========== SCROLL TO TOP ==========
+// ============================================
 let scroll_to_top = document.getElementById("scroll-to-top");
 
 window.onscroll = function () {
-  if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
+  if (document.body.scrollTop > 500 || document.documentElement.scrollTop > 500) {
     scroll_to_top.style.display = "block";
   } else {
     scroll_to_top.style.display = "none";
@@ -73,6 +76,10 @@ $(scroll_to_top).on('click', function () {
   });
 })
 
+
+// ===============================
+// ========== SUBSCRIBE ==========
+// ===============================
 $('#subscribe').on('submit', function (e) {
   e.preventDefault()
   const email = $(this).find('input[name="email"]').val()
@@ -131,3 +138,35 @@ $('.slider-container .slide-left').on('click', function () {
     scrollLeft: "-=300px"
   }, "slow");
 })
+
+var today_date = new Date()
+var tommorrow_date = new Date()
+tommorrow_date.setDate(today_date.getDate() + 1)
+today_date = today_date.toISOString().slice(0, 10)
+tommorrow_date = tommorrow_date.toISOString().slice(0, 10)
+
+$('input[name="check_in"]').val(today_date)
+$('input[name="check_out"]').val(tommorrow_date)
+$('input[name="check_in"]').attr('min', today_date)
+$('input[name="check_out"]').attr('min', tommorrow_date)
+
+$('input[name="check_in"]').on('change', function () {
+  var check_out = new Date($('input[name="check_out"]').val())
+  var check_in = new Date(this.value)
+  var min_check_out = check_in.setDate(check_in.getDate() + 1)
+  var format_min_check_out = new Date(min_check_out).toISOString().slice(0, 10)
+
+  if (check_in >= check_out) {
+    $('input[name="check_out"]').val(format_min_check_out)
+  }
+  $('input[name="check_out"]').attr('min', format_min_check_out)
+})
+
+function about_quote_img() {
+  $('.about-quotes .team-img-container').css({
+    "maxHeight": $('.about-quotes .team-img-container').width()
+  });
+}
+$(window).on('load resize', function () {
+  about_quote_img();
+});
