@@ -14,7 +14,7 @@ main {
   max-width: 330px;
 }
 
-.g-recaptcha {
+[data-bs-theme="dark"] .g-recaptcha {
   filter: invert(.9);
 }
 
