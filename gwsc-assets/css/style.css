@@ -117,8 +117,8 @@ body {
 [data-bs-theme="dark"] input:-webkit-autofill,
 [data-bs-theme="dark"] input:-webkit-autofill:hover,
 [data-bs-theme="dark"] input:-webkit-autofill:focus {
-  -webkit-text-fill-color: #fff;
-  -webkit-box-shadow: 0 0 0 50rem var(--bs-body-bg) inset;
+  -webkit-text-fill-color: #fff !important;
+  -webkit-box-shadow: 0 0 0 50rem var(--bs-body-bg) inset !important;
 }
 
 [data-bs-theme="dark"] #scroll-to-top {
