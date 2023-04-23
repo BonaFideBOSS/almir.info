@@ -493,3 +493,30 @@ body {
 [data-bs-theme="dark"] iframe.google-map {
   filter: invert(.9);
 }
+
+.attraction {
+  height: 150px;
+  overflow: hidden;
+}
+
+.attraction img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: .3s all ease-in-out;
+}
+
+.attraction .bg-backdrop {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+}
+
+.attraction .attraction-text {
+  top: unset !important;
+  bottom: 0 !important;
+}
+
+.attraction:hover img {
+  transform: scale(1.1);
+}
