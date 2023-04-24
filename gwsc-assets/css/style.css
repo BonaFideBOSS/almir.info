@@ -60,6 +60,10 @@
   color: var(--bs-pink);
 }
 
+.text-indigo {
+  color: var(--bs-indigo);
+}
+
 .text-hover-primary:hover {
   color: var(--bs-primary) !important;
 }
@@ -519,4 +523,77 @@ body {
 
 .attraction:hover img {
   transform: scale(1.1);
+}
+
+.search-card {
+  overflow: hidden;
+}
+
+.search-card .card-img {
+  height: 250px;
+  overflow: hidden;
+  border-radius: unset;
+}
+
+.search-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: .5s all ease;
+}
+
+.search-card:hover img {
+  transform: scale(1.2);
+}
+
+.search-card:hover .card-title a {
+  color: var(--bs-primary) !important;
+}
+
+.search-card .rating-tag {
+  position: absolute;
+  top: 0;
+  left: 0;
+  border-bottom-right-radius: 1rem;
+}
+
+#rating-star-container label {
+  font-size: 4vw;
+}
+
+@media (max-width: 575.98px) {
+  #rating-star-container {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: center;
+  }
+
+  #rating-star-container label {
+    flex: 1;
+    font-size: 6vw;
+  }
+}
+
+.review-card .reviewer {
+  position: relative;
+  width: 40px;
+}
+
+.review-card .reviewer>* {
+  position: absolute;
+  top: 30%;
+  left: 35%;
+  transform: translate(-50%,-50%);
+}
+
+.review-card .rating-title {
+  position: relative;
+}
+
+.review-card .rating-title span {
+  position: absolute;
+  top: 50%;
+  left: 49%;
+  transform: translate(-50%, -50%);
+  color: #fff;
 }
