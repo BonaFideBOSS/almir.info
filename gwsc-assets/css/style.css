@@ -56,6 +56,10 @@
   color: var(--bs-blue);
 }
 
+.text-yellow {
+  color: var(--bs-yellow);
+}
+
 .text-pink {
   color: var(--bs-pink);
 }
@@ -469,7 +473,7 @@ body {
 }
 
 #reviews-header {
-  background-image: url("https://almir.info/gwsc-assets/img/reviews/header.jpg");
+  background-image: url("../img/reviews/header.jpg");
   background-position: center;
   background-size: cover;
 }
@@ -618,4 +622,8 @@ body {
   left: 49%;
   transform: translate(-50%, -50%);
   color: #fff;
+}
+
+.rating-chart .progress {
+  --bs-progress-height: .6rem !important
 }
