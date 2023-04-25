@@ -468,6 +468,12 @@ body {
   background-size: cover;
 }
 
+#reviews-header {
+  background-image: url("https://almir.info/gwsc-assets/img/reviews/header.jpg");
+  background-position: center;
+  background-size: cover;
+}
+
 #local-attractions-header {
   background-image: url("https://almir.info/gwsc-assets/img/local-attractions/header.jpg");
   background-position: center;
@@ -523,6 +529,22 @@ body {
 
 .attraction:hover img {
   transform: scale(1.1);
+}
+
+.attraction-link {
+  border: 1px dashed var(--bs-body-color) !important;
+}
+
+.attraction-link .attraction-text {
+  top: 0 !important;
+  bottom: 0 !important;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.attraction-link:hover {
+  border: 1px dashed var(--bs-primary) !important;
 }
 
 .search-card {
@@ -583,7 +605,7 @@ body {
   position: absolute;
   top: 30%;
   left: 35%;
-  transform: translate(-50%,-50%);
+  transform: translate(-50%, -50%);
 }
 
 .review-card .rating-title {

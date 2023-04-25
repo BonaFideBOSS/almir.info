@@ -5,9 +5,10 @@ const toastElList = document.querySelectorAll('.toast')
 const toastList = [...toastElList].map(toastEl => new bootstrap.Toast(toastEl))
 
 function bsalert(alertPlaceholder, message, type) {
+  alertPlaceholder = document.getElementById(alertPlaceholder)
   const wrapper = document.createElement('div')
   wrapper.innerHTML = [
-    `<div class="alert alert-${type} alert-dismissible" role="alert">`,
+    `<div class="alert alert-${type} alert-dismissible fs-5" role="alert">`,
     `   <div>${message}</div>`,
     '   <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>',
     '</div>'
@@ -16,7 +17,7 @@ function bsalert(alertPlaceholder, message, type) {
   alertPlaceholder.append(wrapper)
   setTimeout(() => {
     wrapper.remove()
-  }, 5000);
+  }, 10000);
 }
 
 function bstoast(toast_container, message, delay = 5000) {
