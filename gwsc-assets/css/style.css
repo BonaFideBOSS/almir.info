@@ -600,6 +600,11 @@ body {
   }
 }
 
+.review-card {
+  position: relative;
+  overflow: hidden;
+}
+
 .review-card .reviewer {
   position: relative;
   width: 40px;
@@ -614,14 +619,22 @@ body {
 
 .review-card .rating-title {
   position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .review-card .rating-title span {
   position: absolute;
-  top: 50%;
-  left: 49%;
+  top: 59%;
+  left: 48%;
   transform: translate(-50%, -50%);
   color: #fff;
+}
+
+.review-card .card-text,
+.review-card .collapse.show {
+  display: inline;
 }
 
 .rating-chart .progress {
