@@ -106,7 +106,8 @@ body {
 .form-control:focus,
 .form-select:focus,
 .btn-close:focus,
-.form-check-input:focus {
+.form-check-input:focus,
+.pagination:focus {
   box-shadow: none !important;
 }
 
