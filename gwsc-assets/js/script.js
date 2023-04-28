@@ -113,7 +113,6 @@ $('#enlarge-img').on('show.bs.modal', function (event) {
   img.src = recipient
 })
 
-
 const weatherApiKey = "f5b94f04261b4c0e824174523232402"
 var weatherApiQuery = $('.visitor-weather').data('ip')
 $.get('https://api.weatherapi.com/v1/current.json?key=' + weatherApiKey + '&q=' + weatherApiQuery + '&aqi=no',
@@ -146,21 +145,23 @@ tommorrow_date.setDate(today_date.getDate() + 1)
 today_date = today_date.toISOString().slice(0, 10)
 tommorrow_date = tommorrow_date.toISOString().slice(0, 10)
 
-$('input[name="check_in"]').val(today_date)
-$('input[name="check_out"]').val(tommorrow_date)
-$('input[name="check_in"]').attr('min', today_date)
-$('input[name="check_out"]').attr('min', tommorrow_date)
+$('.site-booking input[name="date"]').val(today_date)
+$('.site-booking input[name="date"]').attr('min', today_date)
+$('.site-booking input[name="check_in"]').val(today_date)
+$('.site-booking input[name="check_in"]').attr('min', today_date)
+$('.site-booking input[name="check_out"]').val(tommorrow_date)
+$('.site-booking input[name="check_out"]').attr('min', tommorrow_date)
 
-$('input[name="check_in"]').on('change', function () {
+$('.site-booking input[name="check_in"]').on('change', function () {
   var check_out = new Date($('input[name="check_out"]').val())
   var check_in = new Date(this.value)
   var min_check_out = check_in.setDate(check_in.getDate() + 1)
   var format_min_check_out = new Date(min_check_out).toISOString().slice(0, 10)
 
   if (check_in >= check_out) {
-    $('input[name="check_out"]').val(format_min_check_out)
+    $('.site-booking input[name="check_out"]').val(format_min_check_out)
   }
-  $('input[name="check_out"]').attr('min', format_min_check_out)
+  $('.site-booking input[name="check_out"]').attr('min', format_min_check_out)
 })
 
 function about_quote_img() {

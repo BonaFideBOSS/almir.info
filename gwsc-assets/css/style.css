@@ -48,24 +48,32 @@
   background-color: var(--bs-blue);
 }
 
+.text-blue {
+  color: var(--bs-blue);
+}
+
 .bg-indigo {
   background-color: var(--bs-indigo);
 }
 
-.text-blue {
-  color: var(--bs-blue);
+.text-indigo {
+  color: var(--bs-indigo);
+}
+
+.bg-yellow {
+  background-color: var(--bs-yellow);
 }
 
 .text-yellow {
   color: var(--bs-yellow);
 }
 
-.text-pink {
-  color: var(--bs-pink);
+.bg-pink {
+  background-color: var(--bs-pink);
 }
 
-.text-indigo {
-  color: var(--bs-indigo);
+.text-pink {
+  color: var(--bs-pink);
 }
 
 .text-hover-primary:hover {
@@ -210,13 +218,30 @@ body {
 }
 
 .home-search-box {
-  margin-top: -75px !important;
+  margin-top: -125px !important;
   display: none;
   position: relative;
   z-index: 2;
 }
 
-[data-bs-theme="dark"] .home-search-box .bg-light {
+.home-search-box .nav-tabs .nav-link {
+  background: transparent;
+  border: none;
+  color: var(--bs-secondary) !important;
+}
+
+.home-search-box .nav-tabs .nav-link:hover {
+  background: none !important;
+  color: var(--bs-blue) !important;
+}
+
+.home-search-box .nav-tabs .nav-link.active {
+  background: transparent !important;
+  color: var(--bs-blue) !important;
+  border-bottom: 3px solid var(--bs-blue);
+}
+
+[data-bs-theme="dark"] .home-search-box .bg-white {
   --bs-bg-opacity: 1 !important;
   background-color: rgba(var(--bs-dark-rgb), var(--bs-bg-opacity)) !important;
 }
@@ -268,6 +293,18 @@ body {
   .home-search-box-sm {
     display: block;
   }
+
+  .nav-responsive {
+    overflow: hidden;
+    overflow-x: scroll;
+    -ms-flex-wrap: nowrap;
+    flex-wrap: nowrap;
+    white-space: nowrap;
+  }
+
+  .nav-responsive::-webkit-scrollbar {
+    display: none;
+  }
 }
 
 .home-video-card {
@@ -283,6 +320,18 @@ body {
   width: 4rem;
   height: 4rem;
   color: #fff;
+}
+
+#features .nav .nav-link {
+  color: var(--bs-secondary);
+}
+
+#features .nav .nav-link.active {
+  color: var(--bs-blue);
+}
+
+#features .nav.nav-pills .nav-link.active {
+  color: #fff !important;
 }
 
 .about-team .card .card-img-overlay {
@@ -461,6 +510,12 @@ body {
   -webkit-backdrop-filter: contrast(0.8);
 }
 
+#features-header {
+  background-image: url("../img/features/features-header.jpg");
+  background-position: center;
+  background-size: cover;
+}
+
 #swimming-header {
   background-image: url("https://almir.info/gwsc-assets/img/sites/swimming-header.jfif");
   background-position: center;
@@ -485,10 +540,20 @@ body {
   background-size: cover;
 }
 
+#contact-header {
+  background-image: url("../img/contact/contact-header.jpg");
+  background-position: center;
+  background-size: cover;
+}
+
 .banner {
   height: 100vh;
   width: 100%;
   position: relative;
+}
+
+.banner.contact {
+  height: max-content !important;
 }
 
 .banner img {
@@ -511,29 +576,45 @@ body {
 
 .attraction {
   height: 150px;
+}
+
+.site-feature {
+  height: 250px;
+}
+
+.attraction,
+.site-feature {
   overflow: hidden;
 }
 
-.attraction img {
+.attraction img,
+.site-feature img {
   width: 100%;
   height: 100%;
   object-fit: cover;
   transition: .3s all ease-in-out;
 }
 
-.attraction .bg-backdrop {
+.attraction .bg-backdrop,
+.site-feature .bg-backdrop {
   position: absolute;
   height: 100%;
   width: 100%;
 }
 
-.attraction .attraction-text {
+.attraction .attraction-text,
+.site-feature .site-feature-text {
   top: unset !important;
   bottom: 0 !important;
 }
 
-.attraction:hover img {
+.attraction:hover img,
+.site-feature:hover img {
   transform: scale(1.1);
+}
+
+.site-feature:hover {
+  box-shadow: 0 1rem 3rem rgba(var(--bs-body-color-rgb), .175) !important;
 }
 
 .attraction-link {
@@ -640,4 +721,15 @@ body {
 
 .rating-chart .progress {
   --bs-progress-height: .6rem !important
+}
+
+#contact-form-container {
+  margin-top: -200px;
+  z-index: 1;
+  position: relative;
+}
+
+[data-bs-theme="dark"] #contact-form-container .bg-white {
+  --bs-bg-opacity: 1 !important;
+  background-color: rgba(var(--bs-dark-rgb), var(--bs-bg-opacity)) !important;
 }
