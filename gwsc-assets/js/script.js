@@ -145,11 +145,17 @@ tommorrow_date.setDate(today_date.getDate() + 1)
 today_date = today_date.toISOString().slice(0, 10)
 tommorrow_date = tommorrow_date.toISOString().slice(0, 10)
 
-$('.site-booking input[name="date"]').val(today_date)
+if ($('.site-booking input[name="date"]').val() == "") {
+  $('.site-booking input[name="date"]').val(today_date)
+}
 $('.site-booking input[name="date"]').attr('min', today_date)
-$('.site-booking input[name="check_in"]').val(today_date)
+if ($('.site-booking input[name="check_in"]').val() == "") {
+  $('.site-booking input[name="check_in"]').val(today_date)
+}
 $('.site-booking input[name="check_in"]').attr('min', today_date)
-$('.site-booking input[name="check_out"]').val(tommorrow_date)
+if ($('.site-booking input[name="check_out"]').val() == "") {
+  $('.site-booking input[name="check_out"]').val(tommorrow_date)
+}
 $('.site-booking input[name="check_out"]').attr('min', tommorrow_date)
 
 $('.site-booking input[name="check_in"]').on('change', function () {
