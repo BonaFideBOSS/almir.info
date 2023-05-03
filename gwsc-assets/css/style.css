@@ -219,13 +219,19 @@ body {
 
 .home-search-box {
   margin-top: -125px !important;
-  display: none;
-  position: relative;
-  z-index: 2;
 }
 
 .availability-search {
   margin-top: -80px !important;
+}
+
+.availability-search-sm {
+  margin-top: 0px !important;
+}
+
+.home-search-box,
+.availability-search {
+  display: none;
   position: relative;
   z-index: 2;
 }
@@ -289,7 +295,9 @@ body {
 
 
 @media (min-width: 992px) {
-  .home-search-box-lg {
+
+  .home-search-box-lg,
+  .availability-search-lg {
     display: block;
   }
 
@@ -300,12 +308,10 @@ body {
 }
 
 @media (max-width: 991.98px) {
-  .home-search-box-sm {
-    display: block;
-  }
 
-  .availability-search {
-    display: none;
+  .home-search-box-sm,
+  .availability-search-sm {
+    display: block;
   }
 
   .nav-responsive {
