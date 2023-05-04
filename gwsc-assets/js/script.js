@@ -45,8 +45,8 @@ $('#footer-year').html(new Date().getFullYear().toString())
 
 $(function () {
   $('.dropdown-hover').hover(function () {
-      $(this).find('.dropdown-menu:eq(0)').addClass('show')
-    },
+    $(this).find('.dropdown-menu:eq(0)').addClass('show')
+  },
     function () {
       $(this).find('.dropdown-menu').removeClass('show')
     });
@@ -76,6 +76,93 @@ $(scroll_to_top).on('click', function () {
     behavior: 'smooth'
   });
 })
+
+
+// ====================================
+// ========== GET CART ITEMS ==========
+// ====================================
+$('.cart-items-count').each(async function () {
+  var cart_items_count = 0
+  var url = $(this).data('url')
+  await $.get(url, function (data) {
+    cart_items_count = data.length
+  })
+  $(this).html(cart_items_count)
+})
+
+$("#cart").on('shown.bs.offcanvas', function () {
+  update_cart()
+})
+
+function delete_cart_item(cart_id) {
+  $.get(`/account/delete-cart-item?cart_id=${cart_id}`, function (response) {
+    console.log(response)
+    if (response.action) {
+      bstoast("gwsc-toast", response.msg, 3000)
+      update_cart()
+    }
+  })
+}
+
+function update_cart() {
+  var cart_body = $('#cart .cart-body')
+  var cart_count = $('#cart .cart-count')
+  var cart_total = $('#cart .cart-total')
+  var loader = '<div class="text-center"><div class="spinner-border" role="status"><span class="visually-hidden">Loading...</span></div></div>'
+  $(cart_body).html(loader)
+
+  $.get($('#cart').data('url'), function (data) {
+    $(cart_count).html(data.length)
+    if (data.length > 0) {
+      var cart_items = ""
+      var total_price = 0
+      for (let i = 0; i < data.length; i++) {
+        total_price += data[i].total_price
+        var summary = ""
+        if (data[i].activity == 'swimming') {
+          var date = new Date(data[i].date)
+          var time = new Date(data[i].time)
+          date = date.toLocaleDateString("en-US", { month: "short", day: "numeric", year: "numeric" })
+          time = time.toLocaleTimeString("en-US", { hour: "numeric", minute: "numeric" });
+          summary = `Reservation for ${date} at ${time}`
+        }
+        if (data[i].activity == 'camping') {
+          var check_in = new Date(data[i].check_in)
+          var check_out = new Date(data[i].check_out)
+          check_in = check_in.toLocaleDateString("en-US", { month: "short", day: "numeric", year: "numeric" })
+          check_out = check_out.toLocaleDateString("en-US", { month: "short", day: "numeric", year: "numeric" })
+          summary = `Reservation from ${check_in} to ${check_out}`
+        }
+        cart_items += `<div class="cart-item row g-3" data-id="${data[i]._id}">
+        <div class="col-3">
+          <div class="img-container rounded-2">
+            <img src="https://almir.info/gwsc-assets/img/database/${data[i].item_img}">
+          </div>
+        </div>
+        <div class="col-9">
+          <div class="d-flex gap-3 h-100">
+            <div class="d-flex flex-column">
+              <h4 class="mb-0">${data[i].item_name}</h4>
+              <p class="mb-0 text-muted">${data[i].summary}</p>
+              <p class="mb-0 text-muted">${summary}</p>
+            </div>
+            <div class="ms-auto d-flex flex-column align-items-end gap-3">
+            <p class="mb-0 text-muted fs-5">$${data[i].total_price}</p>
+            <a class="mt-auto" onclick="delete_cart_item('${data[i]._id}')" role="button">
+            <i class="fa-solid fa-trash-can fa-xl text-danger"></i></a>
+            </div>
+          </div>
+        </div>
+        <hr class="my-4"></div>`
+      }
+      $(cart_body).html(cart_items)
+      $(cart_total).html(total_price)
+    } else {
+      $(cart_body).html('<p class="fs-5">Your cart is empty.</p>')
+      $(cart_total).html('0')
+    }
+  });
+}
 
 
 // ===============================
