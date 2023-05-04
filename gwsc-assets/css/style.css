@@ -766,3 +766,28 @@ body {
   --bs-bg-opacity: 1 !important;
   background-color: rgba(var(--bs-dark-rgb), var(--bs-bg-opacity)) !important;
 }
+
+#bookings.accordion {
+  --bs-accordion-bg: unset !important;
+}
+
+#bookings .accordion-button:focus {
+  box-shadow: none !important;
+}
+
+#bookings .accordion-button:not(.collapsed) {
+  color: unset !important;
+  background-color: unset !important;
+  box-shadow: none !important;
+}
+
+#bookings .img-container {
+  height: 150px;
+  overflow: hidden;
+}
+
+#bookings .img-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}

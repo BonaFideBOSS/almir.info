@@ -140,6 +140,7 @@ $('.slider-container .slide-left').on('click', function () {
 })
 
 var today_date = new Date()
+var current_time = `${today_date.getHours().toString().padStart(2, '0')}:${today_date.getMinutes().toString().padStart(2, '0')}`
 var tommorrow_date = new Date()
 tommorrow_date.setDate(today_date.getDate() + 1)
 today_date = today_date.toISOString().slice(0, 10)
@@ -149,6 +150,9 @@ if ($('.site-booking input[name="date"]').val() == "") {
   $('.site-booking input[name="date"]').val(today_date)
 }
 $('.site-booking input[name="date"]').attr('min', today_date)
+if ($('.site-booking input[name="time"]').val() == "") {
+  $('.site-booking input[name="time"]').val(current_time)
+}
 if ($('.site-booking input[name="check_in"]').val() == "") {
   $('.site-booking input[name="check_in"]').val(today_date)
 }
