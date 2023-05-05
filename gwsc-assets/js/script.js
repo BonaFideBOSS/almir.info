@@ -81,13 +81,13 @@ $(scroll_to_top).on('click', function () {
 // ====================================
 // ========== GET CART ITEMS ==========
 // ====================================
-$('.cart-items-count').each(async function () {
+$(window).on('load', async function () {
   var cart_items_count = 0
-  var url = $(this).data('url')
+  var url = $('.cart-items-count:eq(0)').data('url')
   await $.get(url, function (data) {
     cart_items_count = data.length
   })
-  $(this).html(cart_items_count)
+  $('.cart-items-count').html(cart_items_count)
 })
 
 $("#cart").on('shown.bs.offcanvas', function () {
@@ -96,7 +96,6 @@ $("#cart").on('shown.bs.offcanvas', function () {
 
 function delete_cart_item(cart_id) {
   $.get(`/account/delete-cart-item?cart_id=${cart_id}`, function (response) {
-    console.log(response)
     if (response.action) {
       bstoast("gwsc-toast", response.msg, 3000)
       update_cart()
@@ -119,18 +118,19 @@ function update_cart() {
       for (let i = 0; i < data.length; i++) {
         total_price += data[i].total_price
         var summary = ""
+        const date_options = { month: "short", day: "numeric", year: "numeric", timeZone: 'UTC' }
         if (data[i].activity == 'swimming') {
           var date = new Date(data[i].date)
           var time = new Date(data[i].time)
-          date = date.toLocaleDateString("en-US", { month: "short", day: "numeric", year: "numeric" })
-          time = time.toLocaleTimeString("en-US", { hour: "numeric", minute: "numeric" });
+          date = date.toLocaleDateString("en-US", date_options)
+          time = time.toLocaleTimeString("en-US", { hour: "numeric", minute: "numeric", timeZone: 'UTC' });
           summary = `Reservation for ${date} at ${time}`
         }
         if (data[i].activity == 'camping') {
           var check_in = new Date(data[i].check_in)
           var check_out = new Date(data[i].check_out)
-          check_in = check_in.toLocaleDateString("en-US", { month: "short", day: "numeric", year: "numeric" })
-          check_out = check_out.toLocaleDateString("en-US", { month: "short", day: "numeric", year: "numeric" })
+          check_in = check_in.toLocaleDateString("en-US", date_options)
+          check_out = check_out.toLocaleDateString("en-US", date_options)
           summary = `Reservation from ${check_in} to ${check_out}`
         }
         cart_items += `<div class="cart-item row g-3" data-id="${data[i]._id}">
@@ -147,7 +147,7 @@ function update_cart() {
               <p class="mb-0 text-muted">${summary}</p>
             </div>
             <div class="ms-auto d-flex flex-column align-items-end gap-3">
-            <p class="mb-0 text-muted fs-5">$${data[i].total_price}</p>
+            <p class="mb-0 text-muted fs-5">$${data[i].total_price.toLocaleString('en-US')}</p>
             <a class="mt-auto" onclick="delete_cart_item('${data[i]._id}')" role="button">
             <i class="fa-solid fa-trash-can fa-xl text-danger"></i></a>
             </div>
@@ -156,7 +156,8 @@ function update_cart() {
         <hr class="my-4"></div>`
       }
       $(cart_body).html(cart_items)
-      $(cart_total).html(total_price)
+      $(cart_total).html(total_price.toLocaleString('en-US'))
+      $('.cart-items-count').html(data.length)
     } else {
       $(cart_body).html('<p class="fs-5">Your cart is empty.</p>')
       $(cart_total).html('0')
@@ -227,27 +228,36 @@ $('.slider-container .slide-left').on('click', function () {
 })
 
 var today_date = new Date()
-var current_time = `${today_date.getHours().toString().padStart(2, '0')}:${today_date.getMinutes().toString().padStart(2, '0')}`
+var current_time = `${(today_date.getHours() + 1).toString().padStart(2, '0')}:${today_date.getMinutes().toString().padStart(2, '0')}`
 var tommorrow_date = new Date()
 tommorrow_date.setDate(today_date.getDate() + 1)
 today_date = today_date.toISOString().slice(0, 10)
 tommorrow_date = tommorrow_date.toISOString().slice(0, 10)
 
+$('.site-booking input[name="date"]').attr('min', today_date)
 if ($('.site-booking input[name="date"]').val() == "") {
   $('.site-booking input[name="date"]').val(today_date)
 }
-$('.site-booking input[name="date"]').attr('min', today_date)
+
 if ($('.site-booking input[name="time"]').val() == "") {
   $('.site-booking input[name="time"]').val(current_time)
 }
+
+$('.site-booking input[name="check_in"]').attr('min', today_date)
 if ($('.site-booking input[name="check_in"]').val() == "") {
   $('.site-booking input[name="check_in"]').val(today_date)
 }
-$('.site-booking input[name="check_in"]').attr('min', today_date)
+
 if ($('.site-booking input[name="check_out"]').val() == "") {
+  $('.site-booking input[name="check_out"]').attr('min', tommorrow_date)
   $('.site-booking input[name="check_out"]').val(tommorrow_date)
+} else if ($('.site-booking input[name="check_out"]').length > 0) {
+  var check_in = new Date($('.site-booking input[name="check_in"]').val())
+  var check_out = new Date()
+  check_out.setDate(check_in.getUTCDate() + 1)
+  check_out = check_out.toISOString().slice(0, 10)
+  $('.site-booking input[name="check_out"]').attr('min', check_out)
 }
-$('.site-booking input[name="check_out"]').attr('min', tommorrow_date)
 
 $('.site-booking input[name="check_in"]').on('change', function () {
   var check_out = new Date($('input[name="check_out"]').val())
