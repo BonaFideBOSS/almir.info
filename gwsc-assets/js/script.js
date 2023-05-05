@@ -228,9 +228,9 @@ $('.slider-container .slide-left').on('click', function () {
 })
 
 var today_date = new Date()
-var current_time = `${(today_date.getHours() + 1).toString().padStart(2, '0')}:${today_date.getMinutes().toString().padStart(2, '0')}`
+var current_time = `${(today_date.getUTCHours() + 1).toString().padStart(2, '0')}:${today_date.getUTCMinutes().toString().padStart(2, '0')}`
 var tommorrow_date = new Date()
-tommorrow_date.setDate(today_date.getDate() + 1)
+tommorrow_date.setDate(today_date.getUTCDate() + 1)
 today_date = today_date.toISOString().slice(0, 10)
 tommorrow_date = tommorrow_date.toISOString().slice(0, 10)
 
@@ -262,7 +262,7 @@ if ($('.site-booking input[name="check_out"]').val() == "") {
 $('.site-booking input[name="check_in"]').on('change', function () {
   var check_out = new Date($('input[name="check_out"]').val())
   var check_in = new Date(this.value)
-  var min_check_out = check_in.setDate(check_in.getDate() + 1)
+  var min_check_out = check_in.setDate(check_in.getUTCDate() + 1)
   var format_min_check_out = new Date(min_check_out).toISOString().slice(0, 10)
 
   if (check_in >= check_out) {
