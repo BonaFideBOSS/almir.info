@@ -84,10 +84,12 @@ $(scroll_to_top).on('click', function () {
 $(window).on('load', async function () {
   var cart_items_count = 0
   var url = $('.cart-items-count:eq(0)').data('url')
-  await $.get(url, function (data) {
-    cart_items_count = data.length
-  })
-  $('.cart-items-count').html(cart_items_count)
+  if (url) {
+    await $.get(url, function (data) {
+      cart_items_count = data.length
+    })
+    $('.cart-items-count').html(cart_items_count)
+  }
 })
 
 $("#cart").on('shown.bs.offcanvas', function () {
@@ -107,7 +109,9 @@ function update_cart() {
   var cart_body = $('#cart .cart-body')
   var cart_count = $('#cart .cart-count')
   var cart_total = $('#cart .cart-total')
-  var loader = '<div class="text-center"><div class="spinner-border" role="status"><span class="visually-hidden">Loading...</span></div></div>'
+  var cart_footer = $('#cart .cart-footer')
+  $(cart_footer).hide()
+  var loader = '<div class="d-flex h-100"><div class="spinner-border m-auto" role="status"><span class="visually-hidden">Loading...</span></div></div>'
   $(cart_body).html(loader)
 
   $.get($('#cart').data('url'), function (data) {
@@ -124,14 +128,14 @@ function update_cart() {
           var time = new Date(data[i].time)
           date = date.toLocaleDateString("en-US", date_options)
           time = time.toLocaleTimeString("en-US", { hour: "numeric", minute: "numeric", timeZone: 'UTC' });
-          summary = `Reservation for ${date} at ${time}`
+          summary = `${date} - ${time}`
         }
         if (data[i].activity == 'camping') {
           var check_in = new Date(data[i].check_in)
           var check_out = new Date(data[i].check_out)
           check_in = check_in.toLocaleDateString("en-US", date_options)
           check_out = check_out.toLocaleDateString("en-US", date_options)
-          summary = `Reservation from ${check_in} to ${check_out}`
+          summary = `${check_in} - ${check_out}`
         }
         cart_items += `<div class="cart-item row g-3" data-id="${data[i]._id}">
         <div class="col-3">
@@ -147,9 +151,9 @@ function update_cart() {
               <p class="mb-0 text-muted">${summary}</p>
             </div>
             <div class="ms-auto d-flex flex-column align-items-end gap-3">
-            <p class="mb-0 text-muted fs-5">$${data[i].total_price.toLocaleString('en-US')}</p>
-            <a class="mt-auto" onclick="delete_cart_item('${data[i]._id}')" role="button">
-            <i class="fa-solid fa-trash-can fa-xl text-danger"></i></a>
+            <a onclick="delete_cart_item('${data[i]._id}')" role="button">
+            <i class="fa-solid fa-trash-can fa-lg text-danger"></i></a>
+            <p class="mt-auto mb-0 text-muted fs-5">$${data[i].total_price.toLocaleString('en-US')}</p>
             </div>
           </div>
         </div>
@@ -158,8 +162,9 @@ function update_cart() {
       $(cart_body).html(cart_items)
       $(cart_total).html(total_price.toLocaleString('en-US'))
       $('.cart-items-count').html(data.length)
+      $(cart_footer).show()
     } else {
-      $(cart_body).html('<p class="fs-5">Your cart is empty.</p>')
+      $(cart_body).html('<div class="d-flex h-100"><p class="fs-5 m-auto">Your cart is empty.</p></div>')
       $(cart_total).html('0')
     }
   });
@@ -262,7 +267,7 @@ if ($('.site-booking input[name="check_out"]').val() == "") {
 $('.site-booking input[name="check_in"]').on('change', function () {
   var check_out = new Date($('input[name="check_out"]').val())
   var check_in = new Date(this.value)
-  var min_check_out = check_in.setDate(check_in.getUTCDate() + 1)
+  var min_check_out = check_in.setDate(check_in.getDate() + 1)
   var format_min_check_out = new Date(min_check_out).toISOString().slice(0, 10)
 
   if (check_in >= check_out) {

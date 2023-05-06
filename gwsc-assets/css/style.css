@@ -809,3 +809,27 @@ body {
   height: 100%;
   object-fit: cover;
 }
+
+#checkout-form .btn-check:checked+.btn .card {
+  border-color: var(--bs-primary) !important;
+}
+
+#checkout-form .btn-check:checked+.btn .card .is-selected {
+  display: unset !important;
+}
+
+.add-more-btn {
+  height: 100%;
+  width: 100%;
+  border-width: 1px;
+  border-style: dashed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: .75;
+  text-decoration: none;
+}
+
+.add-more-btn:hover {
+  opacity: 1;
+}
