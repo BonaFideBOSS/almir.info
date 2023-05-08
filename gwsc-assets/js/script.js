@@ -116,6 +116,7 @@ function update_cart() {
 
   $.get($('#cart').data('url'), function (data) {
     $(cart_count).html(data.length)
+    $('.cart-items-count').html(data.length)
     if (data.length > 0) {
       var cart_items = ""
       var total_price = 0
@@ -161,7 +162,6 @@ function update_cart() {
       }
       $(cart_body).html(cart_items)
       $(cart_total).html(total_price.toLocaleString('en-US'))
-      $('.cart-items-count').html(data.length)
       $(cart_footer).show()
     } else {
       $(cart_body).html('<div class="d-flex h-100"><p class="fs-5 m-auto">Your cart is empty.</p></div>')
