@@ -810,6 +810,10 @@ body {
   object-fit: cover;
 }
 
+#checkout-form .btn:has(.card) {
+  color: unset !important;
+}
+
 #checkout-form .btn-check:checked+.btn .card {
   border-color: var(--bs-primary) !important;
 }
