@@ -9,9 +9,9 @@
   <meta name="description" content="Amaan Al Mir's Portfolio">
   <link rel="shortcut icon" href="/assets/img/favico.ico" type="image/x-icon">
 
-  <link rel="stylesheet" href="assets/bootstrap/bootstrap.css">
-  <link rel="stylesheet" href="assets/fontawesome/css/all.css">
-  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="/assets/bootstrap/bootstrap.css">
+  <link rel="stylesheet" href="/assets/fontawesome/css/all.css">
+  <link rel="stylesheet" href="/assets/css/style.css">
 </head>
 
 <body>
@@ -19,7 +19,7 @@
     <div class="row g-2 g-md-3">
       <div class="col-10 col-lg-5 order-1 order-lg-1">
         <div class="card rounded-4 overflow-hidden border-0">
-          <img src="assets/img/almir_web.jpg" class="card-img object-fit-cover">
+          <img src="/assets/img/almir_web.jpg" class="card-img object-fit-cover">
         </div>
       </div>
 
@@ -29,7 +29,7 @@
             <i class="fa-solid fa-hand-wave fa-shake text-orange me-2"></i>Hello, I'm a
           </p>
           <p class="fs-2 card-title text-orange-gradient">Full-Stack Developer</p>
-          <p class="text-secondary">
+          <p class="text-secondary mb-0">
             I design and develop apps, mostly for web, using
             <span class="fw-bold">python</span> and <span class="fw-bold">C#</span>
           </p>
@@ -82,15 +82,15 @@
     <div class="row row-cols-1 row-cols-lg-2 row-gap-3 mt-3">
       <div class="col">
         <div class="project-card card rounded-4 overflow-hidden border-0" role="button">
-          <img src="projects/gwsc/mockup_dark.png" class="card-img h-100 object-fit-cover object-position-bottom">
+          <img src="/projects/gwsc/mockup_dark.png" class="card-img h-100 object-fit-cover object-position-bottom">
           <div class="card-img-overlay">
             <h2 class="card-title bg-orange px-5 py-1 rounded-end-4 shadow">GWSC</h2>
             <div class="project-details d-flex ps-3 flex-column gap-3">
               <p class="card-text mb-0"><span class="badge text-bg-light fw-normal fs-6">Web Application</span></p>
               <div class="tools d-flex gap-3 mt-1">
-                <img src="assets/img/icons/python.png">
-                <img src="assets/img/icons/flask.png">
-                <img src="assets/img/icons/mongodb.png">
+                <img src="/assets/img/icons/python.png">
+                <img src="/assets/img/icons/flask.png">
+                <img src="/assets/img/icons/mongodb.png">
               </div>
               <p class="card-text mb-0">An e-commerce website where users can book swimming sessions and camping
                 pitches.
@@ -110,14 +110,15 @@
 
       <div class="col">
         <div class="project-card card rounded-4 overflow-hidden border-0" role="button">
-          <img src="projects/expense-tracker/mockup.jpg" class="card-img h-100 object-fit-cover">
+          <img src="/projects/expense-tracker/mockup.jpg" class="card-img h-100 object-fit-cover">
           <div class="card-img-overlay">
             <h2 class="card-title bg-orange px-5 py-1 rounded-end-4 shadow">Expense Tracker</h2>
             <div class="project-details d-flex ps-3 flex-column gap-3">
               <p class="card-text mb-0"><span class="badge text-bg-light fw-normal fs-6">Windows Application</span></p>
               <div class="tools d-flex gap-3 mt-1">
-                <img src="assets/img/icons/csharp.png">
-                <img src="assets/img/icons/winui.png">
+                <img src="/assets/img/icons/csharp.png">
+                <img src="/assets/img/icons/winui.png">
+                <img src="/assets/img/icons/livecharts.png">
               </div>
               <p class="card-text mb-0">A Windows desktop application where users can track their expenses.</p>
               <div class="d-flex flex-wrap gap-2 align-items-center justify-content-start">
@@ -157,7 +158,7 @@
       </div>
     </div>
 
-    <a class="mt-3 fs-3 btn btn-outline-dark rounded-4 overflow-hidden card card-body" href="/myworks">
+    <a class="mt-3 fs-3 btn btn-outline-dark rounded-4 overflow-hidden card card-body" href="/works">
       <span class="d-flex justify-content-between align-items-center">
         <span>See all my works</span>
         <i class="fa-duotone fa-arrow-right-long ms-3"></i>
@@ -178,22 +179,24 @@
   </div>
 
   <div class="offcanvas offcanvas-top h-100 bg-pattern" id="side-menu">
-    <div class="offcanvas-header mt-3 me-3">
-      <h5 class="offcanvas-title"></h5>
-      <button type="button" class="btn-close fs-3" data-bs-dismiss="offcanvas"></button>
-    </div>
-    <div class="offcanvas-body h-100">
-      <nav class="nav nav-pills flex-column align-items-center justify-content-center gap-3 fs-1 mt-4">
-        <a class="nav-link px-5 rounded-4 active" href="/">Home</a>
-        <a class="nav-link px-5 rounded-4" href="/myworks">My Works</a>
-      </nav>
+    <div class="container">
+      <div class="offcanvas-header mt-5">
+        <h5 class="offcanvas-title"></h5>
+        <button type="button" class="btn-close fs-3" data-bs-dismiss="offcanvas"></button>
+      </div>
+      <div class="offcanvas-body col-md-8 offset-md-2 col-lg-4 offset-lg-4 h-100">
+        <nav class="nav nav-pills flex-column text-center justify-content-center gap-3 fs-1 mt-4">
+          <a class="nav-link px-5 rounded-4 active" href="/">Home</a>
+          <a class="nav-link px-5 rounded-4" href="/works">My Works</a>
+        </nav>
+      </div>
     </div>
   </div>
 
-  <script src="assets/bootstrap/bootstrap.js"></script>
-  <script src="assets/jquery/jquery.js"></script>
-  <script src="assets/js/theme-changer.js"></script>
-  <script src="assets/js/script.js"></script>
+  <script src="/assets/bootstrap/bootstrap.js"></script>
+  <script src="/assets/jquery/jquery.js"></script>
+  <script src="/assets/js/theme-changer.js"></script>
+  <script src="/assets/js/script.js"></script>
 </body>
 
 </html>

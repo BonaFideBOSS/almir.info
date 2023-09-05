@@ -119,6 +119,10 @@ p {
   }
 }
 
+.object-position-top {
+  object-position: top;
+}
+
 .object-position-bottom {
   object-position: bottom;
 }
@@ -222,6 +226,5 @@ p {
 }
 
 .project-card .tools img {
-  width: 30px;
   height: 30px;
 }
