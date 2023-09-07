@@ -107,15 +107,9 @@ p {
   background: linear-gradient(to right, var(--color-orange), var(--color-orange-dark));
 }
 
-@media (max-width: 991.98px) {
-  .w-md-75 {
-    width: 75% !important;
-  }
-}
-
-@media (max-width: 767.98px) {
-  .w-sm-100 {
-    width: 100% !important;
+@media (min-width: 768px) {
+  .w-md-25 {
+    width: 25% !important;
   }
 }
 
