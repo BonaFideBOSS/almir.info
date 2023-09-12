@@ -3,6 +3,7 @@ const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstra
 
 $('.project-card').on('click', function (e) {
   if (!$(e.target).is('.btn')) {
+    $('.project-card').not(this).removeClass('details-visible')
     $(this).toggleClass('details-visible')
   }
 })
