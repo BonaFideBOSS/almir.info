@@ -1,3 +1,18 @@
+::-webkit-scrollbar {
+  display: none;
+  /* width: 15px; */
+}
+
+::-webkit-scrollbar-track {
+  display: none;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: var(--bs-tertiary-color);
+  border: 5px solid var(--bs-body-bg);
+  border-radius: 15px;
+}
+
 body,
 .bg-pattern {
   background-size: cover;
@@ -119,6 +134,10 @@ p {
 
 .object-position-bottom {
   object-position: bottom;
+}
+
+.h-95 {
+  height: 95% !important;
 }
 
 .nav-pills .nav-link {
