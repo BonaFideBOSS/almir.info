@@ -104,8 +104,6 @@ p {
 
 .btn-orange {
   --bs-btn-color: #000;
-  --bs-btn-bg: var(--color-orange);
-  --bs-btn-border-color: var(--color-orange);
   --bs-btn-hover-color: #000;
   --bs-btn-hover-border-color: var(--color-orange);
   --bs-btn-focus-shadow-rgb: 217, 164, 6;
@@ -116,11 +114,33 @@ p {
   --bs-btn-disabled-color: #000;
   --bs-btn-disabled-bg: #ffc107;
   --bs-btn-disabled-border-color: #ffc107;
+  border: none !important;
+  background-size: 200% auto;
+  background-image: linear-gradient(to right, var(--color-orange-dark), var(--color-orange), var(--color-orange-dark));
+  transition: 0.5s;
 }
 
 .btn-orange:hover {
-  background: linear-gradient(to right, var(--color-orange), var(--color-orange-dark));
+  background-position: right center;
 }
+
+.btn-outline-orange {
+  --bs-btn-color: var(--color-orange);
+  --bs-btn-border-color: var(--color-orange);
+  --bs-btn-hover-color: #000;
+  --bs-btn-hover-bg: var(--color-orange);
+  --bs-btn-hover-border-color: var(--color-orange);
+  --bs-btn-focus-shadow-rgb: 255, 193, 7;
+  --bs-btn-active-color: #000;
+  --bs-btn-active-bg: var(--color-orange);
+  --bs-btn-active-border-color: var(--color-orange);
+  --bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+  --bs-btn-disabled-color: #ffc107;
+  --bs-btn-disabled-bg: transparent;
+  --bs-btn-disabled-border-color: #ffc107;
+  --bs-gradient: none;
+}
+
 
 @media (min-width: 768px) {
   .w-md-25 {
