@@ -235,8 +235,8 @@ p {
 .project-card .project-details {
   opacity: 0;
   position: relative;
-  bottom: -100px;
-  transition: all .2s ease-in-out;
+  bottom: -500px;
+  transition: all .3s ease-in-out;
 }
 
 .project-card.details-visible .project-details {
