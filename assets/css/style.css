@@ -258,6 +258,18 @@ p {
   background: linear-gradient(to right, var(--color-orange), var(--color-orange-dark));
 }
 
+.tools img {
+  height: 64px;
+}
+
 .project-card .tools img {
   height: 30px;
+}
+
+.showcase-item {
+  cursor: pointer;
+}
+
+[data-bs-theme="dark"] .showcase-item {
+  border: none !important;
 }
